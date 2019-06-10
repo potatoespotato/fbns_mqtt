@@ -270,7 +270,7 @@ class FBNSMQTTClient(Client):
         self.on_fbns_token(token)
 
     async def _create_connection(self, host, port, ssl, clean_session, keepalive) -> FBNSMQTTConnection:
-        self._reconnect = True
+        self.reconnect = True
         connection = await FBNSMQTTConnection.create_connection(host, port, ssl, clean_session, keepalive)
         connection.set_handler(self)
         return connection
